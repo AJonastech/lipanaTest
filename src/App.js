@@ -1,25 +1,22 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
-
+import Index from './pages/Index'
+import { createContext } from 'react';
+export const exchangeInput = createContext();
 function App() {
+  const [input, setInput] =useState("")
+  const [disExchange, setDisExchange] =useState(true)
+  const [payment, setPayment] = useState({
+    email : "",
+    number : "",
+    note: "",
+  })
+  const [modal, setModal] = useState(false)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <exchangeInput.Provider value={{input, setInput, disExchange, setDisExchange, payment, setPayment, modal, setModal}}>
+    <Index/>
+    </exchangeInput.Provider>
+  )
 }
 
 export default App;
