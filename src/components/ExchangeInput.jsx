@@ -13,12 +13,26 @@ console.log(inputState)
         <p className="absolute top-[6px] hidden md:block left-3 bg-lightGray py-[4px] px-2 text-[16px] text-darkGray font-medium">
           {description}
         </p>
-        <input
+        {
+            currency ==="KSH" ?      <input
+            placeholder="0.00"
+            value={currency === "USD" ? inputState : handleNumberChangeB( parseInt(inputState.replace(/[\s,]/g, ''),10)*137, ",")}
+            onChange={(e) => handleNumberChangeA(e,  ",", setInputState)}
+            className={"bg-lightGray text-right px-3 border-[2px] border-"+warn+" py-2 w-full  text-[16px] text-darkGray  font-medium"
+            
+          }
+          readOnly
+          />:      <input
           placeholder="0.00"
           value={currency === "USD" ? inputState : handleNumberChangeB( parseInt(inputState.replace(/[\s,]/g, ''),10)*137, ",")}
           onChange={(e) => handleNumberChangeA(e,  ",", setInputState)}
-          className={"bg-lightGray text-right px-3 border-[2px] border-"+warn+" py-2 w-full  text-[16px] text-darkGray font-medium"}
+          className={"bg-lightGray text-right px-3 border-[2px] border-"+warn+" py-2 w-full  text-[16px] text-darkGray font-medium"
+          
+        }
+        
         />
+        }
+   
       </div>
       <div className="md:basis-1/3 basis-[30%] items-center bg-lightGray py-2 flex gap-1 md:gap-4 px-3">
         <img

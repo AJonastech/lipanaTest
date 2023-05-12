@@ -25,7 +25,7 @@ exchangeState.disExchange && (
     <h2 className="text-center font-medium text-[20px] mb-7">Exchange Rate</h2>
     <form onSubmit={(e)=>{e.preventDefault(); handleSubmit()}} className="flex gap-7 flex-col">
       <ExchangeInput logo={usa} warn={warn} setWarn={setWarn} description={"You Send"} currency={"USD"}/>
-      <ExchangeInput logo={kenya} description={"They recieve"} currency={"KES"}/>
+      <ExchangeInput logo={kenya} description={"They recieve"} currency={"KSH"}/>
       <button className="w-full py-2 rounded-xl bg-lipanaLightBlue text-white">
         Proceed
       </button>
