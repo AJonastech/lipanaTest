@@ -1,6 +1,9 @@
 import React from 'react'
-
+import { handleNumberChangeB } from '../utils'
+import { exchangeInput } from '../App'
+import { useContext } from 'react'
 export default function Details({logo, contact, currency,amount}) {
+    const data = useContext(exchangeInput)
     return (
     <>
     <h3 className="text-[19px] text-darkGray font-normal mb-2">
@@ -13,7 +16,7 @@ export default function Details({logo, contact, currency,amount}) {
           alt="country's logo"
         />
         <p className=" text-darkgray font-normal text-[23px]">{currency}</p>
-        <p className="font-bold bg-lightGray py-2 rounded-md px-6">${amount}</p>
+        <p className="font-bold bg-lightGray py-2 rounded-md px-6">${currency === "USD" ? amount :handleNumberChangeB( parseInt(data.input.replace(/[\s,]/g, ''),10)*137, ",")}</p>
       </div>
     </>
     )

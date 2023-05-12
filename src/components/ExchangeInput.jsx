@@ -6,7 +6,7 @@ function ExchangeInput({ description, logo, currency, warn,setWarn }) {
     const inputState = useContext(exchangeInput).input;
     const setInputState = useContext(exchangeInput).setInput;
  
-
+console.log(inputState)
   return (
     <div className="flex  gap-4">
       <div className="md:basis-2/3 basis-[70%] relative">

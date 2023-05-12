@@ -19,19 +19,19 @@ function Footer() {
         <h2 className="font-bold ">Company</h2>
         <ul>
             <li>About Us</li>
-            <l1>Contact Us</l1>
+            <li>Contact Us</li>
         </ul>
       </div>
       <div className="basis-1/2 text-center flex flex-col gap-5 md:text-center">
       <h2 className="font-bold">Legal</h2>
         <ul>
             <li>Privacy Of policy</li>
-            <l1>Terms Of Use</l1>
+            <li>Terms Of Use</li>
         </ul>
       </div>
    </div>
       </div>
-      <div className="text-white md:items-end flex-col-reverse mt-7 flex justify-between">
+      <div className="text-white md:items-end flex-col-reverse md:flex-row  mt-7 flex justify-between">
         <p className="text-center text-[16px] mt-3 md:mt-0">Copyright © 2023 Mobishare | All Rights Reserved.</p>
         <div className="flex gap-3">
             <img src={foot2} alt="image"/>

@@ -12,7 +12,7 @@ const closeModal = useContext(exchangeInput).setModal
       {
      data.modal ?(
       <div className="w-full flex items-center justify-center z-20 h-screen fixed top-0 right-0 opacity">
-      <div className="max-w-[592px] pt-2 relative pb-7 mt-9 z-20  px-10 w-[90%] bg-white rounded-[40px] font-inter">
+      <div className="max-w-[592px] pt-2 relative pb-7 mt-9 z-20  px-10 w-[90%] bg-white md:rounded-[40px] rounded-xl font-inter">
           <AiOutlineClose onClick={()=>{closeModal(false)}} className="absolute text-2xl right-7 top-3"/>
           <h2 className="text-center font-medium text-[20px] mb-7">Confirm Transaction</h2>
           <div className="flex gap-4  flex-col">

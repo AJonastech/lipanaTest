@@ -5,12 +5,16 @@ import { exchangeInput } from "../App";
 import { useState } from "react";
 import Modal from "./Modal";
 import { handleNumberChange } from "../utils";
+import { handleNumberChangeB } from "../utils";
 function SendMoney() {
   const [wordCount, setWordCount] = useState(0);
 
   const wordCounter = (str) => {
     const strArray = str.split(" ");
-    setWordCount(strArray.length - 1);
+    if(strArray.length===0){
+        setWordCount(0);
+    }
+    setWordCount( strArray.length);
   };
 
   const handleNoteChange = (e) => {
@@ -42,9 +46,7 @@ function SendMoney() {
       setWarning({ ...warning, email: true });
     } else if (exchangeState.payment.number.length !== 9) {
       setWarning({ ...warning, number: true });
-    }
-
-    if (!warning.email && !warning.number && !warning.note) {
+    }else if(!warning.email && !warning.number && !warning.note) {
       exchangeState.setModal(true);
     }
   };
@@ -70,7 +72,7 @@ function SendMoney() {
   return (
     <>
       {!exchangeState.disExchange && (
-        <div className="max-w-[592px] pt-2 pb-7 mt-9 z-20  px-10 w-[90%] bg-white  rounded-[55px] font-inter">
+        <div className="max-w-[592px] pt-2 pb-7 mt-9 z-20  px-10 w-[90%] bg-white  rounded-xl md:rounded-[55px] font-inter">
           <h2 className="text-center font-medium text-[20px] mb-7">
             Send Money To Kenya
           </h2>
@@ -78,7 +80,7 @@ function SendMoney() {
             You send <span className="font-bold">${exchangeState.input}</span>,
             they recieve{" "}
             <span className="font-bold">
-              Ksh&nbsp; {exchangeState.input * 137}
+              Ksh&nbsp; {handleNumberChangeB( parseInt(exchangeState.input.replace(/[\s,]/g, ''),10)*137, ",")}
             </span>
           </h3>
           <form
